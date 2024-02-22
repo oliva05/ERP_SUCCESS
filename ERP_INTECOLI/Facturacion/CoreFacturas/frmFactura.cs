@@ -467,6 +467,7 @@ namespace Eatery.Ventas
         {
             //txtNombreCliente
             //txtRTN
+            string PrinterName = "N/D";
             DataOperations dp = new DataOperations();
             if (dp.ValidateStringIsNullOrEmpty(txtNombreCliente.Text))
             {
@@ -507,8 +508,9 @@ namespace Eatery.Ventas
                     factura.RTN = frm2.RTN;
                     factura.ClienteNombre = frm2.NombreCliente;
                     factura.direccion_cliente = frm2.Direccion;
-                    
-                    if(ClienteFactura != null)
+
+
+                    if (ClienteFactura != null)
                         if(ClienteFactura.Id>0)
                             factura.IdCliente = ClienteFactura.Id;
 
@@ -781,6 +783,7 @@ namespace Eatery.Ventas
                         factura.RTN = frm2.RTN;
                         factura.ClienteNombre = frm2.NombreCliente;
                         factura.direccion_cliente = frm2.Direccion;
+                        PrinterName = frm.PrinterName;
 
                         if (ClienteFactura != null)
                             if (ClienteFactura.Id > 0)
@@ -1171,6 +1174,7 @@ namespace Eatery.Ventas
                             rptFactura report = new rptFactura(facturaGenerada, rptFactura.TipoCopia.Blanco) { ShowPrintMarginsWarning = false };
                             report.PrintingSystem.Document.AutoFitToPagesWidth = 1;
                             ReportPrintTool printReport = new ReportPrintTool(report);
+                            printReport.PrinterSettings.PrinterName = PrinterName;
                             //printReport.ShowPreviewDialog();
                             printReport.Print();
                             facturaGenerada.UpdatePrintCount(facturaGenerada.Id);

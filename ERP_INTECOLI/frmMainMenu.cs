@@ -78,9 +78,6 @@ namespace ERP_INTECOLI
             this.Text = "ERP - Success English Academy System.  Equipo Actual: " + Dns.GetHostName();
         }
 
-
-
-
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (Form frm1 in this.MdiChildren)
@@ -94,28 +91,67 @@ namespace ERP_INTECOLI
             frm.Show();
         }
 
-
-
-        
-
-
         private void navCaja_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             frmCaja mtx = new frmCaja(this.UsuarioLogeado);
             if (mtx != null)
             {
-                
                 mtx.MdiParent = this;
                 try
                 {
                     mtx.Show();
                 }
                 catch { }
-                
             }
         }
 
+        private void frmMainMenu_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Control)
+                CajaDialogo.InformationAuto();
 
+            if (((Control.ModifierKeys & Keys.Control) == Keys.Control) && e.KeyCode == Keys.N)
+            {
+                foreach (Form frm1 in this.MdiChildren)
+                {
+                    frm1.Dispose();
+                }
+
+                frm = new frmMain();
+                frm.MdiParent = this;
+                frm.WindowState = FormWindowState.Normal;
+                frm.Show();
+            }
+        }
+
+        private void statusStrip1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (((Control.ModifierKeys & Keys.Control) == Keys.Control) && e.KeyCode == Keys.N)
+            {
+                foreach (Form frm1 in this.MdiChildren)
+                {
+                    frm1.Dispose();
+                }
+
+                frm = new frmMain();
+                frm.MdiParent = this;
+                frm.WindowState = FormWindowState.Normal;
+                frm.Show();
+            }
+        }
+
+        private void abrirMenuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (Form frm1 in this.MdiChildren)
+            {
+                frm1.Dispose();
+            }
+
+            frm = new frmMain();
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Normal;
+            frm.Show();
+        }
     }
     
 }

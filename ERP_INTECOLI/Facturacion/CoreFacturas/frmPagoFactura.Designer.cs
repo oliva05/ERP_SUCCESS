@@ -708,6 +708,7 @@
             this.ListboxPrintersOtros.Name = "ListboxPrintersOtros";
             this.ListboxPrintersOtros.Size = new System.Drawing.Size(342, 80);
             this.ListboxPrintersOtros.TabIndex = 52;
+            this.ListboxPrintersOtros.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.ListboxPrintersOtros_ItemCheck);
             this.ListboxPrintersOtros.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListboxPrintersOtros_KeyDown);
             // 
             // label23

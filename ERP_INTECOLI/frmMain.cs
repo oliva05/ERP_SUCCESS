@@ -424,7 +424,6 @@ namespace JAGUAR_APP
             txtUsuario.Text = "doliva";
             txtClave.Text = "Gto1804";
             ValidateUserInfo();
-
         }
     }
 }

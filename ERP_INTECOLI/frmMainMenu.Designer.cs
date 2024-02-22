@@ -114,7 +114,11 @@ namespace ERP_INTECOLI
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblServerName = new System.Windows.Forms.ToolStripStatusLabel();
             this.navBarGroup8 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirMenuPrincipalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // navDesconectar
@@ -280,7 +284,10 @@ namespace ERP_INTECOLI
             this.navNuevoRecordatorio.Caption = "Nuevo Recordatorio";
             this.navNuevoRecordatorio.ImageOptions.SmallImage = global::ERP_INTECOLI.Properties.Resources.recordatorio_x32;
             this.navNuevoRecordatorio.Name = "navNuevoRecordatorio";
-
+            // 
+            // navSolicCompras
+            // 
+            this.navSolicCompras.Name = "navSolicCompras";
             // 
             // navBarSolicitudesCompras
             // 
@@ -606,11 +613,12 @@ namespace ERP_INTECOLI
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripDropDownButton1,
             this.lblServerName});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 737);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 615);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(914, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.statusStrip1_KeyDown);
             // 
             // toolStripDropDownButton1
             // 
@@ -654,18 +662,48 @@ namespace ERP_INTECOLI
             new DevExpress.XtraNavBar.NavBarItemLink(this.navDistribucioZonaResidencial)});
             this.navBarGroup8.Name = "navBarGroup8";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.opcionesToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(914, 24);
+            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // opcionesToolStripMenuItem
+            // 
+            this.opcionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.abrirMenuPrincipalToolStripMenuItem});
+            this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
+            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.opcionesToolStripMenuItem.Text = "Opciones";
+            // 
+            // abrirMenuPrincipalToolStripMenuItem
+            // 
+            this.abrirMenuPrincipalToolStripMenuItem.Name = "abrirMenuPrincipalToolStripMenuItem";
+            this.abrirMenuPrincipalToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.abrirMenuPrincipalToolStripMenuItem.Text = "Abrir Menu Principal";
+            this.abrirMenuPrincipalToolStripMenuItem.Click += new System.EventHandler(this.abrirMenuPrincipalToolStripMenuItem_Click);
+            // 
             // frmMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 759);
+            this.ClientSize = new System.Drawing.Size(914, 637);
             this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMainMenu";
             this.Text = "ERP - Success English Academy System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMainMenu_KeyDown);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -754,5 +792,8 @@ namespace ERP_INTECOLI
         private DevExpress.XtraNavBar.NavBarItem navBarItem21;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup8;
         private DevExpress.XtraNavBar.NavBarItem navBarProveedores;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem opcionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem abrirMenuPrincipalToolStripMenuItem;
     }
 }

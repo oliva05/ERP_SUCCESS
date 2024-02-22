@@ -58,6 +58,46 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             GetPrintersNames();
             LoadBancosList();
             LoadTipoPagoList();
+
+            DefinirDefaultPrinter();
+            
+        }
+
+        private void DefinirDefaultPrinter()
+        {
+            foreach (DevExpress.XtraEditors.Controls.CheckedListBoxItem item in ListboxPrintersEfectivo.Items)
+            {
+                PrinterName = item.Value.ToString();
+                if (PrinterName.Contains("EPSON TM-U220 Receipt"))
+                {
+                    item.CheckState = CheckState.Checked;
+                }
+            }
+            foreach (DevExpress.XtraEditors.Controls.CheckedListBoxItem item in ListboxPrintersTarjeta.Items)
+            {
+                PrinterName = item.Value.ToString();
+                if (PrinterName.Contains("EPSON TM-U220 Receipt"))
+                {
+                    item.CheckState = CheckState.Checked;
+                }
+            }
+
+            foreach (DevExpress.XtraEditors.Controls.CheckedListBoxItem item in ListboxPrintersTransferencia.Items)
+            {
+                PrinterName = item.Value.ToString();
+                if (PrinterName.Contains("EPSON TM-U220 Receipt"))
+                {
+                    item.CheckState = CheckState.Checked;
+                }
+            }
+            foreach (DevExpress.XtraEditors.Controls.CheckedListBoxItem item in ListboxPrintersOtros.Items)
+            {
+                PrinterName = item.Value.ToString();
+                if (PrinterName.Contains("EPSON TM-U220 Receipt"))
+                {
+                    item.CheckState = CheckState.Checked;
+                }
+            }
         }
 
         private void LoadBancosList()
@@ -648,6 +688,15 @@ namespace JAGUAR_APP.Facturacion.CoreFacturas
             {
                 IdMetodoPagoElectronico = dp.ValidateNumberInt32(gridLookUpEditBancos.EditValue);
                 //LoadDetallePago(IdMetodoPagoElectronico);
+            }
+        }
+
+        private void ListboxPrintersOtros_ItemCheck(object sender, DevExpress.XtraEditors.Controls.ItemCheckEventArgs e)
+        {
+            foreach (DevExpress.XtraEditors.Controls.CheckedListBoxItem item in ListboxPrintersEfectivo.Items)
+            {
+                if (item.CheckState == CheckState.Checked)
+                    PrinterName = item.Value.ToString();
             }
         }
     }
